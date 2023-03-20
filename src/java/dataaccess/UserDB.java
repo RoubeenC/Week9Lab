@@ -16,6 +16,7 @@ import models.User;
  *
  * @author Roubeen Chaudhry
  */
+
 public class UserDB {
     
     public List<User> getAll() throws Exception{
