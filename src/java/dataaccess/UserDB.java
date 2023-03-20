@@ -34,10 +34,10 @@ public class UserDB {
 
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         
-        try{
+        try {
             User user = em.find(User.class, email);
             return user;
-        }finally{
+        } finally {
             em.close();
         }
     }
@@ -46,7 +46,7 @@ public class UserDB {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         
-        try{
+        try {
             Role role = user.getRole();
             role.getUserList().add(user);
             trans.begin();
@@ -55,7 +55,7 @@ public class UserDB {
             trans.commit();
         } catch(Exception ex){
             trans.rollback();
-        }finally{
+        } finally {
             em.close();
         }
     }
@@ -64,13 +64,13 @@ public class UserDB {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         
-        try{
+        try {
             trans.begin();
             em.merge(user);
             trans.commit();
         } catch(Exception ex){
             trans.rollback();
-        }finally{
+        } finally {
             em.close();
         }
     }
@@ -80,7 +80,7 @@ public class UserDB {
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         EntityTransaction trans = em.getTransaction();
         
-        try{
+        try {
             Role role = user.getRole();
             role.getUserList().remove(user);
             trans.begin();
@@ -89,7 +89,7 @@ public class UserDB {
             trans.commit();
         } catch(Exception ex){
             trans.rollback();
-        }finally{
+        } finally {
             em.close();
         }
     }

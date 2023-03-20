@@ -46,20 +46,16 @@ public class UserServlet extends HttpServlet {
                         request.setAttribute("errorMessage", "No users found. Please add a user.");
                     }
             }
-            
             List<User> users = us.getAll();
             request.setAttribute("users", users);
             
             List<Role> roles = rs.getAll();
-            request.setAttribute("roles", roles);
-            
+            request.setAttribute("roles", roles);  
         } catch (Exception ex){
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("errorMessage", "error");
         }
-        
     getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
-    
     }
 
     @Override
@@ -86,14 +82,11 @@ public class UserServlet extends HttpServlet {
              
             List<User> users = us.getAll();
             request.setAttribute("users", users);
- 
         } catch (Exception ex){
             Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
             request.setAttribute("errorMessage", "errorcatch");
         }
         
         getServletContext().getRequestDispatcher("/WEB-INF/users.jsp").forward(request, response);
-    
     }
-
 }

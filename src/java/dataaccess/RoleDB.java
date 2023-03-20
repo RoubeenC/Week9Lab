@@ -17,10 +17,10 @@ public class RoleDB {
     public List<Role> getAll() throws Exception{
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         
-        try{
+        try {
            List<Role> roles = em.createNamedQuery("Role.findAll", Role.class).getResultList();
            return roles;
-        }finally{
+        } finally {
             em.close();
         }
     }
@@ -28,10 +28,10 @@ public class RoleDB {
     public Role get(int id) throws Exception{
         EntityManager em = DBUtil.getEmFactory().createEntityManager();
         
-        try{
+        try {
             Role role = em.find(Role.class, id);
             return role;
-        }finally{
+        } finally {
             em.close();
         }
     }
